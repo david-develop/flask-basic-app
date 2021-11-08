@@ -1,16 +1,17 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
-{% macro render_todo(todo, delete_form) %}
+{% macro render_todo(todo, delete_form, update_form) %}
 <li class="list-group-item">
     <span class="badge">
         {%if todo.to_dict().done %}
-        Done
+        <a href="{{ url_for('update', todo_id=todo.id, done=todo.to_dict().done) }}" style="color: white !important;">Done</a>
         {% else %}
-        To do
+        <a href="{{ url_for('update', todo_id=todo.id, done=todo.to_dict().done) }}" style="color: white !important;">To Do</a>
         {% endif %}
     </span>
     Descripción: {{ todo.to_dict().description }}
     <!-- {{ wtf.quick_form(delete_form, action=url_for('delete', todo_id=todo.id)) }} -->
-    <a href="{{ url_for('delete', todo_id=todo.id) }}" class="btn d-inline-block btn-danger">Delete</a>
+    <a href="{{ url_for('delete', todo_id=todo.id) }}" class="btn btn-danger">Delete</a>
+    <!-- {{ wtf.quick_form(update_form, action=url_for('update', todo_id=todo.id, done=todo.to_dict().done)) }} -->
 </li>
 {% endmacro %}

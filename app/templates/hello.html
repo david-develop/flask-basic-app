@@ -8,15 +8,16 @@
 {% endblock %}
 
 {% block content %}
-    {% if username %}
-        <h1>Bienvenido, {{ username | capitalize }}</h1>
-    {% endif %}
-
-    {% if user_ip %}
-        <h3>Tu IP es {{ user_ip }}</h3>
-    {% else %}
-        <a href="{{ url_for('index') }}">Ir a inicio</a>
-    {% endif %}
+    <div class="container">
+        {% if username %}
+            <h1>Bienvenido, {{ username | capitalize }}</h1>
+        {% endif %}
+        {% if user_ip %}
+            <h5>Tu IP es {{ user_ip }}</h3>
+        {% else %}
+            <a href="{{ url_for('index') }}">Ir a inicio</a>
+        {% endif %}
+    </div>
 
     <div class="container">
         <h2>Crea una nueva tarea</h2>
@@ -26,7 +27,7 @@
     <div class="container">
         <ul class="list-group">
             {% for todo in todos %}
-                {{ macros.render_todo(todo, delete_form) }}
+                {{ macros.render_todo(todo, delete_form, update_form) }}
             {% endfor %}
         </ul>
     </div>
