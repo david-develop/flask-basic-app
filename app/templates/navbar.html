@@ -11,9 +11,9 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url_for('index') }}">
-                <img src="{{ url_for('static', filename='images/platzi.png') }}"
+                <img src="{{ url_for('static', filename='images/logoflask.png') }}"
                      style="max-width: 48px"
-                     alt="Platzi logo">
+                     alt="Logo Flask">
             </a>
         </div>
 
@@ -23,7 +23,6 @@
                     <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                 {% endif %}
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
-                <li><a href="https://platzi.com" target="_blank">Platzi</a></li>
             </ul>
         </div>
     </div>
