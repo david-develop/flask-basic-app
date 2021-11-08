@@ -1,7 +1,7 @@
 from flask_login.utils import login_required, logout_user, login_user
 from . import auth
 from app.forms import LoginForm
-from flask import render_template, redirect, url_for, flash, session, request
+from flask import render_template, redirect, url_for, flash
 from app.firestore_service import get_user
 from app.models import UserData, UserModel
 
@@ -40,6 +40,15 @@ def login():
 
     return render_template('login.html', **context)
 
+
+@auth.route('signup', methods=['GET', 'POST'])
+def signup():
+    signup_form = LoginForm()
+    context = {
+        'signup_form': signup_form
+    }
+
+    return render_template('signup.html', **context)
 
 @auth.route('logout')
 @login_required

@@ -2,14 +2,9 @@ from flask import request, make_response, redirect, render_template, session, ur
 import unittest
 from flask_login import login_required, current_user
 from app import create_app
-from app.forms import LoginForm
-from app.firestore_service import get_users, get_todos
+from app.firestore_service import get_todos
 
 app = create_app()
-
-
-todos = ['Comprar cafe', 'Enviar solicitud de compra',
-         'Entregar video a productor ']
 
 
 @app.cli.command()
